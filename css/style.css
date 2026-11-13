@@ -1,0 +1,263 @@
+/* Основное оформление страницы */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #d5c3e9;
+  color: #222222;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+h1 {
+  margin: 0;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+button, input, select {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  padding: 8px;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid #999999;
+  background: #f8f8f8;
+  border-radius: 4px;
+}
+
+button:hover {
+  background: #e4e4e4;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.player-picker {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+/* Блоки с игрой */
+.game-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  align-items: start;
+}
+
+.panel {
+  background: white;
+  border: 1px solid #cccccc;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.side-column {
+  display: grid;
+  gap: 15px;
+}
+
+.balance-value {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* Колесо рулетки */
+.wheel-stage {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 1;
+  margin: 10px auto 20px;
+}
+
+.wheel-rim {
+  position: absolute;
+  inset: 5%;
+  border: 8px solid #777777;
+  border-radius: 50%;
+  background: #777777;
+}
+
+.wheel {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.wheel svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.pointer {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 25px solid #333333;
+}
+
+.wheel-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 4px solid #777777;
+  background: white;
+  font-weight: bold;
+}
+
+.result-strip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid #cccccc;
+  padding-top: 12px;
+}
+
+.result-ball {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #dddddd;
+  color: #222222;
+  font-weight: bold;
+}
+
+.result-ball.red { background: #c43d4c; color: white; }
+.result-ball.black { background: #222222; color: white; }
+.result-ball.zero { background: #13864d; color: white; }
+
+/* Кнопки выбора ставки */
+.bet-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.bet-choice {
+  min-height: 38px;
+}
+
+.red-choice { background: #f4c6c6; }
+.black-choice { background: #444444; color: white; }
+.zero-choice { background: #bde4c7; }
+
+.number-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 4px;
+}
+
+.number-btn {
+  padding: 7px 0;
+  min-width: 0;
+}
+
+/* У выбранной ставки появляется заметная рамка */
+.bet-choice.active,
+.number-btn.active {
+  border: 2px solid #005bbb;
+  background: #cfe4ff;
+  color: #111111;
+  font-weight: bold;
+}
+
+.selected-bet {
+  margin: 12px 0;
+  font-weight: bold;
+}
+
+.amount-row {
+  display: flex;
+  gap: 5px;
+  margin-top: 6px;
+}
+
+.amount-row input {
+  min-width: 0;
+  width: 100%;
+}
+
+.spin-btn {
+  width: 100%;
+  margin-top: 12px;
+  background: #a9dfae;
+  font-weight: bold;
+}
+
+.spin-btn:hover {
+  background: #8bcc91;
+}
+
+.spin-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.status {
+  min-height: 20px;
+  font-weight: bold;
+}
+
+.status.win { color: green; }
+.status.lose, .status.error { color: #b12525; }
+
+/* Правила и рекорды */
+.rules-panel,
+.records-panel {
+  margin-top: 15px;
+}
+
+.leaderboard {
+  padding-left: 25px;
+}
+
+.leaderboard li {
+  padding: 5px;
+}
+
+.leaderboard li span {
+  display: inline-block;
+  min-width: 150px;
+}
+

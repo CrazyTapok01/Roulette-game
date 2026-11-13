@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Рулетка</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <h1>Рулетка</h1>
+      <div class="player-picker">
+        <label for="userSelect">Игрок:</label>
+        <select id="userSelect"></select>
+        <button id="addUserBtn" title="Добавить игрока">+</button>
+        <button id="deleteUserBtn" title="Удалить игрока">Удалить</button>
+      </div>
+    </header>
+
+    <div class="game-layout">
+      <section class="panel wheel-panel">
+        <h2>Колесо рулетки</h2>
+        <div class="wheel-stage">
+          <div class="pointer"></div>
+          <div class="wheel-rim">
+            <div id="wheel" class="wheel"></div>
+            <div class="wheel-center">R</div>
+          </div>
+        </div>
+        <div class="result-strip">
+          <span id="resultBall" class="result-ball">?</span>
+          <div>
+            <div>Результат:</div>
+            <strong id="resultText">Сделайте ставку</strong>
+          </div>
+        </div>
+      </section>
+
+      <div class="side-column">
+        <section class="panel balance-panel">
+          <h2>Баланс</h2>
+          <p class="balance-value"><span id="bal">1000</span> монет</p>
+          <p class="record-line">Ваш рекорд: <strong id="max">1000</strong></p>
+        </section>
+
+        <section class="panel bet-panel">
+          <h2>Выберите ставку</h2>
+          <div class="bet-options">
+            <button class="bet-choice red-choice" data-bet="red">Красное ×2</button>
+            <button class="bet-choice black-choice" data-bet="black">Чёрное ×2</button>
+            <button class="bet-choice" data-bet="even">Чётное ×2</button>
+            <button class="bet-choice" data-bet="odd">Нечётное ×2</button>
+            <button class="bet-choice zero-choice" data-bet="zero">Зеро ×5</button>
+          </div>
+
+          <div class="number-bet">
+            <p>Или выберите число от 1 до 40:</p>
+            <div class="number-grid" id="numberGrid"></div>
+          </div>
+
+          <p class="selected-bet" id="selectedBet">Ставка не выбрана</p>
+          <label for="betInput">Количество монет:</label>
+          <div class="amount-row">
+            <input id="betInput" type="number" min="1" step="1" value="100">
+            <button class="quick-amount" data-amount="100">100</button>
+            <button class="quick-amount" data-amount="500">500</button>
+            <button class="quick-amount" data-amount="1000">1000</button>
+          </div>
+          <button id="spinBtn" class="spin-btn">Крутить колесо</button>
+          <p id="status" class="status" role="status"></p>
+        </section>
+      </div>
+    </div>
+
+    <section class="panel rules-panel">
+      <h2>Правила</h2>
+      <p>На колесе 40 чисел и зеро (0). Нечётные числа — красные, чётные — чёрные.</p>
+      <p>Красное, чёрное, чётное, нечётное — ×2. Одно число — ×4. Зеро — ×5.</p>
+      <p>Для игры используются виртуальные монеты.</p>
+    </section>
+
+    <section class="panel records-panel">
+      <h2>Таблица рекордов</h2>
+      <ol id="leaderboard" class="leaderboard"></ol>
+    </section>
+  </main>
+  <script src="js/script.js"></script>
+</body>
+</html>
